@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	template="/WEB-INF/templates/template.xhtml">
+	<ui:define name="content">
+		<p class="welcome">#{messages.app_welcomeMessage}</p>
+		<p class="info">#{homeBean.message}</p>
+		<div class="tasks">
+		<h2>#{messages.app_tasksList}</h2>
+		<table>
+			<ui:repeat value="#{taskHome.tasks}" var="v_task">
+				<tr>
+					<td>#{v_task.id}</td>
+					<td>#{v_task.description}</td>
+				</tr>
+			</ui:repeat>
+		</table>
+			<h:form>
+				<div class="addTask">
+					<p></p>
+					<h:inputText value="#{taskHome.task.description}" id="taskDesc" />
+					<h:commandButton styleClass="button" action="#{taskHome.saveTask}" value="Add" />
+					<h:message for="taskDesc" style="color : red;padding-left : 8px" />
+				</div>
+			</h:form>
+		</div>
+
+	</ui:define>
+</ui:composition>
