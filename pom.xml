@@ -207,7 +207,7 @@
 	</repositories>
 
 	<build>
-		<finalName>spring-jsf-jpa</finalName>
+		<finalName>jsfspringjpasample</finalName>
 		<plugins>
 
 			<!-- Facilitates downloading source and javadoc in Eclipse -->

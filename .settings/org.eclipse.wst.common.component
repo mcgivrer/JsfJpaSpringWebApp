@@ -3,8 +3,9 @@
     <wb-module deploy-name="JSFSpringJPASample">
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/java"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/resources"/>
+        <wb-resource deploy-path="/" source-path="/target/m2e-wtp/web-resources"/>
         <wb-resource deploy-path="/" source-path="/src/main/webapp"/>
-        <property name="context-root" value="spring-jsf-jpa"/>
+        <property name="context-root" value="jsfspringjpasample"/>
         <property name="java-output-path" value="/JSFSpringJPASample/target/classes"/>
     </wb-module>
 </project-modules>

@@ -8,22 +8,42 @@
 		<p class="welcome">#{messages.app_welcomeMessage}</p>
 		<p class="info">#{homeBean.message}</p>
 		<div class="tasks">
-		<h2>#{messages.app_tasksList}</h2>
-		<table>
-			<ui:repeat value="#{taskHome.tasks}" var="v_task">
-				<tr>
-					<td>#{v_task.id}</td>
-					<td>#{v_task.description}</td>
-				</tr>
-			</ui:repeat>
-		</table>
+			<h2>#{messages.app_tasksList}</h2>
 			<h:form>
 				<div class="addTask">
-					<p></p>
-					<h:inputText value="#{taskHome.task.description}" id="taskDesc" />
+					<label>#{messages.task_form_description_label} : <h:inputText value="#{taskHome.task.description}" id="taskDesc" focus="true"/></label>
+					<label>#{messages.task_form_user_label} : <h:inputText value="#{taskHome.task.createdBy}" id="taskUser" /></label>
 					<h:commandButton styleClass="button" action="#{taskHome.saveTask}" value="Add" />
 					<h:message for="taskDesc" style="color : red;padding-left : 8px" />
 				</div>
+				<table class="dataTable">
+					<thead>
+						<tr>
+							<th>Id</th>
+							<th>Description</th>
+							<th>Date</th>
+							<th>User</th>
+						</tr>
+					</thead>
+					<ui:repeat value="#{taskHome.tasks}" var="task">
+						
+						<tr>
+							<td>#{task.id}</td>
+							<td>#{task.description}</td>
+							<td>
+								<h:outputText value="#{task.createdAt}">
+									<f:convertDateTime 	dateStyle="medium" />
+								</h:outputText>
+							</td>
+							<td>#{task.createdBy}</td>
+							<td>
+								<h:commandLink action="#{taskHome.deleteTask}" value="remove" immediate="true">
+									<f:param name="taskId" value="#{task.id}" />	
+								</h:commandLink>
+							</td>
+						</tr>
+					</ui:repeat>
+				</table>
 			</h:form>
 		</div>
 

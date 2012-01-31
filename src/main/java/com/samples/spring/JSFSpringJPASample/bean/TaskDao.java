@@ -20,6 +20,13 @@ public class TaskDao {
 		entityManager.persist(task);
 	}
 
+	@Transactional
+	public void delete(Long  taskId) {
+		Task t = (Task)entityManager.find(Task.class,taskId);
+		entityManager.remove(t);
+		t=null;
+	}
+
 	@SuppressWarnings("unchecked")
 	public List<Task> list() {
 		return entityManager.createQuery("select t from Task t")
