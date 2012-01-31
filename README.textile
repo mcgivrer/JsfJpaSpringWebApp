@@ -1,0 +1,7 @@
+h1. JSF+JPA+Spring sample application
+
+p. A small application managing tasks to demonstrate to the java developer how to use in interaction JSF, JPA and Spring in the same application.
+
+p. It's demonstrating too how to use Junit on Unit testing.
+
+p. Thanks to http://www.AndyGibson.net for his fantastic maven archetype for such application : the Knappsack Java EE Maven Archetypes.
